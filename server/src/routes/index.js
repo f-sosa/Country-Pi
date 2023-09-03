@@ -6,6 +6,7 @@ const getCountriesByCountry = require("../controllers/getCountriesByCountry");
 const getCountriesName = require("../controllers/getCountryName");
 const postActivity = require("../controllers/postActivities");
 
+
 router.get("/countries", getCountry);
 router.get("/activities", getActivities);
 router.get("/countries/name", getCountriesName);
