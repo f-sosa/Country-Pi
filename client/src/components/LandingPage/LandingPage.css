@@ -1,26 +1,24 @@
-body {
-   background: url(../src/img/Country.jpg) no-repeat center top;
-   background-size: cover; 
-   background-repeat: no-repeat; 
-   background-position: center center;
-   height: 100vh; 
-   margin-top: 500px;
-  }
-  .button {
-    color: #0c0d0d !important;
-    margin-top: -200px;
-    font-size: 50px;
-    font-weight: 500;
-    padding: 0.5em 1.2em;
-    background: rgba(0,0,0,0);
-    border: 2px solid;
-    border-color: #b2bfc4;
-    border-radius: 25px;
-    transition: all 1s ease;
-    position: relative;
-  }
-  .button:hover {
-    background: #318aac;
-    color: #121111 !important;
-  }
-  
+.LandingPage {
+    background: url(../../img/Country.jpg) no-repeat center top;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center center;
+    height: 100vh; 
+   }
+   .button {
+     color: #0c0d0d !important;
+     margin-top: 200px;
+     font-size: 50px;
+     font-weight: 500;
+     padding: 0.5em 1.2em;
+     background: rgba(0,0,0,0);
+     border: 2px solid;
+     border-color: #b2bfc4;
+     border-radius: 25px;
+     transition: all 1s ease;
+     position: relative;
+   }
+   .button:hover {
+     background: #318aac;
+     color: #121111 !important;
+   }
