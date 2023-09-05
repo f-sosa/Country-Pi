@@ -4,11 +4,9 @@
     background-repeat: no-repeat;
     background-position: center center;
     height: 100vh;
-    margin: 0; 
     padding: 80px;
     text-align: auto;
-}
-.countries content{
-
-    text-align: center;
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
 }
