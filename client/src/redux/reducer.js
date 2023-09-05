@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, REMOVE_FAV, FILTER, ORDER } from "./types";
+import { GET_COUNTRIES, GET_NAME, FILTER, ORDER } from "./types";
 const initialState = {
     countries: [],
     countriesFilter: []
@@ -7,10 +7,10 @@ const rootReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case GET_COUNTRIES:
-            return { ...state, countries: action.payload};
+            return { ...state, countries: action.payload, countriesFilter: action.payload};
 
-        case REMOVE_FAV:
-            return;
+        case GET_NAME:
+            return{...state, countriesFilter: action.payload};
         case FILTER:
 
             return
