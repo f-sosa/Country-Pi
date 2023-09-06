@@ -2,6 +2,15 @@ const { Country, Activity } = require("../db");
 const api = require("../../api/db.json");
 module.exports = async (req, res) => {
 
+
+//VERIFICAR
+/*
+    if (country.fifa === undefined) {
+        console.log("asd");
+    }
+*/
+
+
     //Hacemos una consulta a la base de datos para saber si hay datos en las tablas 
     let countries = await Country.findAll();
     // Obtenemos los datos en la api
@@ -11,6 +20,8 @@ module.exports = async (req, res) => {
         //Recorremos la api
         for (const country of countriesFromApi) {
             //Hay algunos nombres que estan en undefined entonces queremos los que no estan undefined
+           
+
             if (country.fifa !== undefined) {
                 let cap;
                 //Hay algunos paises que no tienen capitales por ende preguntamos si  tienen capital
@@ -21,7 +32,6 @@ module.exports = async (req, res) => {
                     //Caso contrario se le carga el nombre del pais como capital
                     cap = country.name.common
                 }
-
 
                 try {
                     //Preguntamos si existe, si no, lo crea
@@ -46,7 +56,7 @@ module.exports = async (req, res) => {
         }
     }
     //Llamamos de vuelta a la base de datos con los datos ya cargados
-    countries = await Country.findAll();
+    countries = await Country.findAll({include: Activity});
     //Devolvemos los objetos
     return res.status(200).json(countries);
 };

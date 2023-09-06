@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_NAME } from "./types.js";
+import { GET_COUNTRIES, GET_NAME, ORDER, POBLATION } from "./types.js";
 import axios from "axios";
 
 
@@ -36,3 +36,20 @@ export const getCountries = () => {
       }
     };
   };
+  export const orderAlphabetical = (order) => {
+
+    return {
+       type: ORDER,
+       payload: order
+    };
+ 
+ }
+
+ export const orderPoblation = (order) => {
+
+  return {
+     type: POBLATION,
+     payload: order
+  };
+
+}

@@ -1,4 +1,4 @@
-const { Country } = require("../db");
+const { Country, Activity } = require("../db");
 const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
@@ -10,7 +10,8 @@ module.exports = async (req, res) => {
         name: {
         [Op.iLike]: `%${name}%`
         }
-      }
+      },
+      include: Activity
     });
     
     if (countrys.length === 0) {

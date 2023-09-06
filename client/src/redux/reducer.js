@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_NAME, FILTER, ORDER } from "./types";
+import { GET_COUNTRIES, GET_NAME, FILTER, ORDER, POBLATION } from "./types";
 const initialState = {
     countries: [],
     countriesFilter: []
@@ -15,7 +15,38 @@ const rootReducer = (state = initialState, action) => {
 
             return
         case ORDER:
-                return;
+            if (action.payload == "A") {
+                return {
+                    ...state,
+                    countriesFilter: [...state.countriesFilter].sort((a, b) =>
+                      a.name.localeCompare(b.name)
+                    )
+                  };
+            } else {
+                return {
+                    ...state,
+                    countriesFilter: [...state.countriesFilter].sort((a, b) =>
+                      b.name.localeCompare(a.name)
+                    )
+                  };
+            }
+            case POBLATION:
+            if (action.payload == "M") {
+                return {
+                    ...state,
+                    countriesFilter: [...state.countriesFilter].sort(
+                      (a, b) => b.population - a.population
+                    )
+                  };
+            } else {
+                return {
+                    ...state,
+                    countriesFilter: [...state.countriesFilter].sort(
+                      (a, b) => a.population - b.population
+                    )
+                  };
+            }
+           
         default:
             return { ...state };
 

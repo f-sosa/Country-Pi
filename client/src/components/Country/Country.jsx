@@ -1,7 +1,7 @@
 import "./Country.css";
 const Country = ({ id, name, image, continent }) => {
   return (
-    <div className="card">
+    <div className="card">  
       <div className="face front">
         <img src={image} alt="" />
         <h3>{name}</h3>
