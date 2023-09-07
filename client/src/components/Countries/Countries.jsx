@@ -25,10 +25,11 @@ const Countries = () => {
         if (count <= 10) {
           return (
             <Country
-              key={country.id}
-              name={country.name}
-              image={country.image}
-              continent={country.continent}
+              key = {country.id}
+              id = {country.id}
+              name = {country.name}
+              image = {country.image}
+              continent = {country.continent}
             />
           );
           //se corta aca el if

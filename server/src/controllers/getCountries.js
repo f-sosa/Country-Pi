@@ -20,10 +20,15 @@ module.exports = async (req, res) => {
         //Recorremos la api
         for (const country of countriesFromApi) {
             //Hay algunos nombres que estan en undefined entonces queremos los que no estan undefined
-           
+            let cap;
 
-            if (country.fifa !== undefined) {
-                let cap;
+            if (country.fifa === undefined) {
+                country.fifa = country.cca3;
+            }
+
+            if(country.subregion === undefined){
+                country.subregion = country.name.common;
+            }
                 //Hay algunos paises que no tienen capitales por ende preguntamos si  tienen capital
                 if (country.capital && country.capital[0] !== undefined) {
                     cap = country.capital && country.capital[0];
@@ -52,11 +57,12 @@ module.exports = async (req, res) => {
                 } catch (error) {
                     return res.status(500).send(error.message);
                 }
-            }
+            
         }
     }
     //Llamamos de vuelta a la base de datos con los datos ya cargados
     countries = await Country.findAll({include: Activity});
+
     //Devolvemos los objetos
     return res.status(200).json(countries);
 };

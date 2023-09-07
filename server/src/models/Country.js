@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        is: /^[\p{L}\s',.\-]+$/u 
+        //is: /^[\p{L}\s',.\-]+$/u
       }
     },
     image: {

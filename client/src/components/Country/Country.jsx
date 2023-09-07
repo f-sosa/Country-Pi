@@ -1,4 +1,5 @@
 import "./Country.css";
+import { Link } from "react-router-dom";
 const Country = ({ id, name, image, continent }) => {
   return (
     <div className="card">  
@@ -10,7 +11,10 @@ const Country = ({ id, name, image, continent }) => {
         <h3>{name}</h3>
         <p>{continent}</p>
         <div className="link">
-          <p>Detail</p>
+        <Link to={`/detail/${id}`}>
+            {" "}
+            <p>Detail</p>
+          </Link>
         </div>
       </div>
     </div>

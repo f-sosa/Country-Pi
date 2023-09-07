@@ -1,0 +1,71 @@
+.detail{
+        background: url(../../img/Detaill.jpg) no-repeat center top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100vh;
+        padding: 80px;
+        text-align: auto;
+        display: flex;
+        justify-content:space-between;
+        flex-wrap: wrap;
+        
+}
+
+.detail .body {
+        position: relative;
+        right: -300px;
+        padding: 20px;
+        margin-bottom: -12px;
+        text-align: center;
+        border: 1px solid;
+        border-radius: 20px;
+        background: linear-gradient(rgba(133, 135, 141, 0.75),rgba(232, 232, 234, 0.75));
+        
+}
+.detail .body h1 {
+
+        margin-bottom: 10px;
+
+}
+
+.detail .content{
+
+        position: relative;
+        top: -285px;
+        right: -700px;
+        text-align: center;
+        border: 1px solid;
+        border-radius: 20px;
+        background: linear-gradient(rgba(133, 135, 141, 0.75),rgba(232, 232, 234, 0.75));
+        
+}
+.detail .content h3{
+
+        margin-bottom: 30px;
+        flex: 1; 
+        margin-right: 20px; 
+        margin-top: 20px;
+       
+}
+
+.detail .activities{
+        background: linear-gradient(rgba(133, 135, 141, 0.75),rgba(232, 232, 234, 0.75));
+        border: 1px solid;
+        border-radius: 20px;
+        position: relative;
+        top: 450px;
+        display: flex;
+        padding: 40px;
+        margin-right: 230px;
+        
+            
+}
+
+.detail .activities h1{
+
+        position: relative;
+        top: -35px;
+        right: 20px; 
+        text-align: center;      
+}
