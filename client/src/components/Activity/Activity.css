@@ -1,0 +1,102 @@
+.activity {
+  background: url(../../img/Excursiones.jpg) no-repeat center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  padding: 80px;
+  text-align: auto;
+  -display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.activity .acti2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  /*Largo de la ventana activity*/
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+}
+.activity h1 {
+  text-align: center;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid silver;
+}
+
+.activity form {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+form .nameActivity {
+  position: relative;
+  border-bottom: 2px solid #adaada;
+  margin: 30px 0;
+}
+
+.nameActivity input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.nameActivity label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.nameActivity span ::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #6c3483;
+}
+.nameActivity input:focus ~ label,
+.nameActivity input:focus ~ label {
+  top: -5px;
+  color: #6c3483;
+}
+.nameActivity input:focus ~ span::before,
+.nameActivity input:focus ~ span::before {
+  width: 100%;
+}
+
+form .seasons {
+  display: flex;
+  align-items: center;
+}
+
+.seasons input {
+  /*Lo mejor para mover las cosas*/
+  position: relative;
+  right: 330px;
+  width: 100%;
+  margin-top: 90px;
+}
+form .seasons label {
+
+    position: relative;
+    right: 10px;
+    
+}
+
+form .seasons h2 {
+  margin-top: -80px;
+  margin-right: 170px;
+  margin-left: 350px;
+}

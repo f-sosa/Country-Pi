@@ -38,7 +38,7 @@ const Detail = () => {
       <ul>
   <div className="activities">
   <h1>Activities:</h1>
-    {detail.Activities.length > 0 ?  (
+    {detail.Activities && detail.Activities.length > 0 ?  (
         
      detail.Activities.map((activity) => (
         <ActivitiesByCountry

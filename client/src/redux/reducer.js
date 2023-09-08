@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_NAME, FILTER, ORDER, POBLATION, CONTINENT, GET_ACTIVITIES, GET_COUNTRYBYID, ACTIVITY } from "./types";
+import { GET_COUNTRIES, GET_NAME, ORDER, POBLATION, CONTINENT, GET_ACTIVITIES, GET_COUNTRYBYID, ACTIVITY } from "./types";
 const initialState = {
   countries: [],
   countriesFilter: [],
