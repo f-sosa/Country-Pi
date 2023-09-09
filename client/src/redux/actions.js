@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_NAME, ORDER, POBLATION, CONTINENT, GET_ACTIVITIES, ACTIVITY, GET_COUNTRYBYID } from "./types.js";
+import { GET_COUNTRIES, GET_NAME, ORDER, POBLATION, CONTINENT, GET_ACTIVITIES, ACTIVITY, GET_COUNTRYBYID, ADD_COUNTRY_ACTIVITY, REMOVE_COUNTRY_ACTIVITY } from "./types.js";
 import axios from "axios";
 
 
@@ -103,5 +103,21 @@ export const filterActivity = (filter) => {
      type: ACTIVITY,
      payload: filter
   };
-
 }
+
+export const addCountryActivity = (id) => {
+  
+    return {
+       type: ADD_COUNTRY_ACTIVITY,
+       payload: id
+    };
+
+};
+export const removeCountryActivity = (id) => {
+  
+  return {
+     type: REMOVE_COUNTRY_ACTIVITY,
+     payload: id
+  };
+
+};

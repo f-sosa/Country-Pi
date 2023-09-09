@@ -1,0 +1,24 @@
+.countryActivity {
+  text-align: center;
+}
+
+.countryActivity img {
+  display: flex;
+  position: relative;
+  border-radius: 100%;
+  width: 60px;
+  left: 200px;
+}
+.countryActivity h4 {
+    position: relative;
+    right: 20px;
+    top: 25px;
+}
+.countryActivity button {
+    /*Para que mantengan la posicion*/
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 120px;
+    
+
+}

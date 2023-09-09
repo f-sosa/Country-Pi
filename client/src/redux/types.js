@@ -7,4 +7,6 @@ export const ORDER = 'ORDER';
 export const POBLATION = 'POBLATION';
 export const CONTINENT = 'CONTINENT';
 export const ACTIVITY = 'ACTIVITY';
+export const ADD_COUNTRY_ACTIVITY = 'ADD_COUNTRY_ACTIVITY';
+export const REMOVE_COUNTRY_ACTIVITY = 'REMOVE_COUNTRY_ACTIVITY';
 
