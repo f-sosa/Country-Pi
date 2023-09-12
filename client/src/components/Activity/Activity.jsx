@@ -1,22 +1,30 @@
 import "./Activity.css";
-import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { getCountries } from "../../redux/actions";
 import { getCountriesByName } from "../../redux/actions";
+import { resetCountrryActivity } from "../../redux/actions";
 import { useEffect } from "react";
 import CountryActivity from "../CountryActivity/CountryActivity";
+import CountrySelected from "../CountrySelected/CountrySelected";
+import postActivity from "../../postActivity";
 import React from "react";
+
 const Activity = () => {
   const dispacth = useDispatch();
 
   const countries = useSelector((state) => state.countryActivity);
+
+  const countriesSelected = useSelector((state) => state.countrySelect);
+
+
+
 
   useEffect(() => {
     dispacth(getCountries());
   }, []);
 
   let count = 0;
-  
+
   const [input, setInput] = React.useState({
     name: "",
     dificult: "",
@@ -24,62 +32,65 @@ const Activity = () => {
     duration: "",
     countries: [],
   });
-  
-  const handleSubmit = async (event) => {
-    setInput({
-      ...input,
-      countries: [...input.countries, "BRA", "ARG", "COL", "VEN"],
-    });
-    event.preventDefault();
-    console.log(input.countries);
 
-    //Anda
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const body = {
+      name: input.name,
+      dificult: input.dificult,
+      duration: input.duration,
+      season: input.season,
+      countries: countriesSelected,
+    };
+    console.log(body);
     /*
-  const body = {
-    name: input.name,
-    dificult: input.dificult,
-    duration: input.duration,
-    season: input.season,
-    countries: input.countries,
-  }
-  console.log(body);
-  
   try {
-    const endpoint = 'http://localhost:3001/activities';
-    const result = await axios.post(endpoint, body);
-    // Aquí puedes manejar la respuesta de la petición, si es necesario.
-    console.log(result.data); // Ejemplo: muestra los datos de la respuesta en la consola
+    const result = await postActivity(body);
+    console.log(result);
+    formulary.reset();
+    dispacth(resetCountrryActivity());
   } catch (error) {
-    // Aquí puedes manejar los errores de la petición.
     console.error(error);
   }
- */
+  */
   };
   const handleChange = (inputs) => {
     setInput({ ...input, [inputs.target.name]: inputs.target.value });
   };
 
-  const inputSearch = (event) =>{
+  const inputSearch = (event) => {
     const nameValue = event.target.value.trim();
- 
-    dispacth(getCountriesByName(nameValue));
 
-  }
+    dispacth(getCountriesByName(nameValue));
+  };
 
   return (
     <div className="activity">
       <div className="acti2">
         <h1>Create Activity</h1>
 
-        <form action="">
+        <form action="" id="formulary">
           <div className="nameActivity">
             <input type="text" name="name" onChange={handleChange} />
             <label>Name Activity:</label>
           </div>
-          <div className="nameActivity">
-            <input type="text" name="dificult" onChange={handleChange} />
-            <label>Dificult:</label>
+          <div className="box">
+            <div className="slider">
+              <input
+                type="range"
+                name="dificult"
+                onChange={handleChange}
+                min="1"
+                max="5"
+              />
+              <label>Dificult:</label>
+            </div>
+            <div className="value">5</div>
           </div>
+
+           
+          
           <div className="seasons">
             <h2>Seasons</h2>
             <label>
@@ -131,7 +142,12 @@ const Activity = () => {
 
           <br />
           <div className="search">
-          Search: <input type='search' placeholder="Search countries.." onInput={inputSearch}/> 
+            Search:{" "}
+            <input
+              type="search"
+              placeholder="Search countries.."
+              onInput={inputSearch}
+            />
           </div>
           {countries.map((country) => {
             count++;
@@ -146,7 +162,17 @@ const Activity = () => {
               );
             }
           })}
+          <br />
+          <br />
+          <div className="countrySelected">
+            <h4>Country Selected</h4>
 
+            <div className="namee">
+              {countriesSelected.map((country) => {
+                return <CountrySelected key={country} id={country} />;
+              })}
+            </div>
+          </div>
           <button onClick={handleSubmit}>Send</button>
         </form>
       </div>

@@ -1,0 +1,10 @@
+.countrySelected {
+position: relative;
+top: -16px;
+display: flex;
+border: none;
+}
+.countrySelected  h1{
+position: relative;
+top: 10px;
+}

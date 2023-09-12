@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_NAME, ORDER, POBLATION, CONTINENT, GET_ACTIVITIES, ACTIVITY, GET_COUNTRYBYID, ADD_COUNTRY_ACTIVITY, REMOVE_COUNTRY_ACTIVITY } from "./types.js";
+import { GET_COUNTRIES, GET_NAME, ORDER, POBLATION, CONTINENT, GET_ACTIVITIES, ACTIVITY, GET_COUNTRYBYID, ADD_COUNTRY_ACTIVITY, REMOVE_COUNTRY_ACTIVITY, RESET_COUNTRY_ACTIVITY } from "./types.js";
 import axios from "axios";
 
 
@@ -85,7 +85,7 @@ export const getActivities = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(endpoint);
-      console.log(data);
+     
       dispatch({
         type: GET_ACTIVITIES,
         payload: data,
@@ -118,6 +118,13 @@ export const removeCountryActivity = (id) => {
   return {
      type: REMOVE_COUNTRY_ACTIVITY,
      payload: id
+  };
+
+};
+export const resetCountrryActivity = () => {
+  
+  return {
+     type: RESET_COUNTRY_ACTIVITY
   };
 
 };

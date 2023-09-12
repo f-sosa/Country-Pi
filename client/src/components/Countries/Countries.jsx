@@ -19,7 +19,10 @@ const Countries = () => {
   return (
      
     <div className="countries">
+      
       <Filter/>
+      <br />
+      <div className="content">
       {countries.map((country) => {
         count++;
         if (count <= 10) {
@@ -35,6 +38,7 @@ const Countries = () => {
           //se corta aca el if
         }
       })}
+      </div>
     </div>
   );
 };

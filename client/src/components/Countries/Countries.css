@@ -6,6 +6,10 @@
     height: 100vh;
     padding: 80px;
     text-align: auto;
+    
+}
+
+.countries  .content {
     display: flex;
     justify-content:space-between;
     flex-wrap: wrap;
