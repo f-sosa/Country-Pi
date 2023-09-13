@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import CountryActivity from "../CountryActivity/CountryActivity";
 import CountrySelected from "../CountrySelected/CountrySelected";
 import postActivity from "../../postActivity";
+import validation from "../../validation";
 import React from "react";
 
 const Activity = () => {
@@ -17,7 +18,7 @@ const Activity = () => {
   const countriesSelected = useSelector((state) => state.countrySelect);
 
 
-
+  let dificult = 1;
 
   useEffect(() => {
     dispacth(getCountries());
@@ -32,6 +33,7 @@ const Activity = () => {
     duration: "",
     countries: [],
   });
+  const [errors, setErrors] = React.useState({});
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,7 +46,7 @@ const Activity = () => {
       countries: countriesSelected,
     };
     console.log(body);
-    /*
+    
   try {
     const result = await postActivity(body);
     console.log(result);
@@ -53,10 +55,21 @@ const Activity = () => {
   } catch (error) {
     console.error(error);
   }
-  */
+  
   };
   const handleChange = (inputs) => {
     setInput({ ...input, [inputs.target.name]: inputs.target.value });
+
+    setErrors(
+      validation({ ...input, [inputs.target.name]: inputs.target.value })
+    );
+
+   if(inputs.target.name === "dificult"){
+
+    const dificultElement = document.getElementById("value");
+
+    dificultElement.innerHTML = inputs.target.value;
+   }
   };
 
   const inputSearch = (event) => {
@@ -76,6 +89,7 @@ const Activity = () => {
             <label>Name Activity:</label>
           </div>
           <div className="box">
+          <label>Dificult:</label>
             <div className="slider">
               <input
                 type="range"
@@ -83,14 +97,11 @@ const Activity = () => {
                 onChange={handleChange}
                 min="1"
                 max="5"
-              />
-              <label>Dificult:</label>
+              />             
             </div>
-            <div className="value">5</div>
+            <span className="value" id= "value">{dificult}</span>
           </div>
-
-           
-          
+                    
           <div className="seasons">
             <h2>Seasons</h2>
             <label>

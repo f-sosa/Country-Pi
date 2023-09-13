@@ -15,3 +15,8 @@
     flex-wrap: wrap;
     gap: 10px;
 }
+
+.countries .pagination {
+    display: flex;
+    gap: 30px;
+}

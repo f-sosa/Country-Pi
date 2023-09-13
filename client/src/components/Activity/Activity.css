@@ -1,5 +1,5 @@
 .activity {
-  background: url(../../img/Excursiones.jpg) no-repeat center top;
+  background: url(../../img/ImageActivity.jpg) no-repeat center top;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -81,7 +81,7 @@
   font-weight: 600;
   font-family: sans-serif;
   color: #3498db;
-  width: 55px;
+  width: 780px;
   text-align: center;
 }
 
