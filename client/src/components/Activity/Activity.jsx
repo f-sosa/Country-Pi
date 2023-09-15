@@ -28,7 +28,7 @@ const Activity = () => {
 
   const [input, setInput] = React.useState({
     name: "",
-    dificult: "",
+    dificult: "1",
     season: "",
     duration: "",
     countries: [],
@@ -37,27 +37,35 @@ const Activity = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    const countryIDs = countriesSelected.map((country) => country.id);
     const body = {
       name: input.name,
       dificult: input.dificult,
       duration: input.duration,
       season: input.season,
-      countries: countriesSelected,
+      countries: countryIDs,
     };
     console.log(body);
+    if(!body.name || !body.duration || !body.season || body.countries.length === 0){  
+
+      alert("Please complete all fields");   
+
+    } else {
     
   try {
     const result = await postActivity(body);
-    console.log(result);
+    alert(JSON.stringify(result.data));
     formulary.reset();
     dispacth(resetCountrryActivity());
   } catch (error) {
-    console.error(error);
+    alert(error);
   }
   
+  }
   };
   const handleChange = (inputs) => {
+   
+
     setInput({ ...input, [inputs.target.name]: inputs.target.value });
 
     setErrors(
@@ -70,6 +78,11 @@ const Activity = () => {
 
     dificultElement.innerHTML = inputs.target.value;
    }
+
+   if(!countriesSelected){
+    console.log("No contiene nada");
+   }
+
   };
 
   const inputSearch = (event) => {
@@ -88,12 +101,16 @@ const Activity = () => {
             <input type="text" name="name" onChange={handleChange} />
             <label>Name Activity:</label>
           </div>
+          {errors.e1 ? (<p style={{ color: 'red' }}>{errors.e1}</p>)
+          :(<p></p>)}
+          <br />
           <div className="box">
           <label>Dificult:</label>
             <div className="slider">
               <input
                 type="range"
                 name="dificult"
+                value={input.dificult}
                 onChange={handleChange}
                 min="1"
                 max="5"
@@ -143,14 +160,17 @@ const Activity = () => {
                 onChange={handleChange}
               />
               Spring
-            </label>
+            </label>        
           </div>
+          {errors.e2 ? (<p style={{ color: 'red' }}>{errors.e2}</p>)
+          :(<p></p>)}
 
           <div className="time">
             <input type="time" name="duration" onChange={handleChange} />
             <label>Duration:</label>
           </div>
-
+          {errors.e3 ? (<p style={{ color: 'red' }}>{errors.e3}</p>)
+          :(<p></p>)}
           <br />
           <div className="search">
             Search:{" "}
@@ -159,7 +179,7 @@ const Activity = () => {
               placeholder="Search countries.."
               onInput={inputSearch}
             />
-          </div>
+         
           {countries.map((country) => {
             count++;
             if (count <= 5) {
@@ -173,18 +193,19 @@ const Activity = () => {
               );
             }
           })}
+           </div>
           <br />
           <br />
-          <div className="countrySelected">
+          <div className="countriesSelected">
             <h4>Country Selected</h4>
 
-            <div className="namee">
-              {countriesSelected.map((country) => {
-                return <CountrySelected key={country} id={country} />;
+            <div className="nameCountry">
+              {countriesSelected.map((country) => {           
+                return <CountrySelected key={country.id} id={country.id} name = {country.name} image = {country.image} />;
               })}
             </div>
           </div>
-          <button onClick={handleSubmit}>Send</button>
+          <button onClick={handleSubmit} id = "btn" >Send</button>
         </form>
       </div>
     </div>

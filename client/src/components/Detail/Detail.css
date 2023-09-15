@@ -14,8 +14,9 @@
 
 .detail .body {
         position: relative;
-        right: -300px;
+        right: -280px;
         padding: 20px;
+        left: 60px;
         margin-bottom: -12px;
         text-align: center;
         border: 1px solid;
@@ -25,36 +26,19 @@
 }
 .detail .body h1 {
 
-        margin-bottom: 10px;
+        margin-bottom: 15px;
 
 }
 
-.detail .content{
 
-        position: relative;
-        top: -285px;
-        right: -700px;
-        text-align: center;
-        border: 1px solid;
-        border-radius: 20px;
-        background: linear-gradient(rgba(133, 135, 141, 0.75),rgba(232, 232, 234, 0.75));
-        
-}
-.detail .content h3{
-
-        margin-bottom: 30px;
-        flex: 1; 
-        margin-right: 20px; 
-        margin-top: 20px;
-       
-}
 
 .detail .activities{
+        position: absolute;
         background: linear-gradient(rgba(133, 135, 141, 0.75),rgba(232, 232, 234, 0.75));
         border: 1px solid;
         border-radius: 20px;
-        position: relative;
-        top: 450px;
+        left: 600px;
+        top: 250px;
         display: flex;
         padding: 40px;
         margin-right: 230px;

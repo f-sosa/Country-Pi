@@ -1,10 +1,19 @@
 import "./CountrySelected.css"
-const CountrySelected = ({id}) => {
+import { useDispatch } from "react-redux";
+import { removeCountrySelect } from "../../redux/actions";
+const CountrySelected = ({id, name, image}) => {
+  const dispacth = useDispatch();
 
+  const handleRemove = (id) => {
+    event.preventDefault();
+    dispacth(removeCountrySelect(id));
+  }
   return (
     <div className="countrySelected">
-     <h1>{id}</h1>
-
+     <img src={image}/>
+     <p>{name}</p>
+     <button onClick={()=>handleRemove(id)}>x</button>
+     
     </div>
   );
 };

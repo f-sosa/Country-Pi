@@ -67,6 +67,7 @@ const Countries = () => {
       </nav>
     </div>
   );
+
 function prevPage() {
 if(currentPage !== firstIndex) {
   setCurrentPage(currentPage - 1);

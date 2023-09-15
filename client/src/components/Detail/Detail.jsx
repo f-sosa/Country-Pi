@@ -10,7 +10,6 @@ const Detail = () => {
 
   const detail = useSelector((state) => state.countryDetail);
 
-
   useEffect(() => {
     dispacth(getCountriesById(id));
   }, []);
@@ -20,13 +19,8 @@ const Detail = () => {
       <ul>
         <div className="body">
           <h1>{detail.name}</h1>
-          <img
-            src={detail.image}
-            alt="Una persona disfrutando de la playa en un día soleado"
-          />
-        </div>
-        <div className="content">
-          <h3>Detail</h3>
+          <img src={detail.image} />    
+          <h1>Detail</h1>
           <h3>Id : {detail.id}</h3>
           <h3>Continent : {detail.continent}</h3>
           <h3>Capital : {detail.capital}</h3>
@@ -36,25 +30,24 @@ const Detail = () => {
         </div>
       </ul>
       <ul>
-  <div className="activities">
-  <h1>Activities:</h1>
-    {detail.Activities && detail.Activities.length > 0 ?  (
-        
-     detail.Activities.map((activity) => (
-        <ActivitiesByCountry
-          key={activity.id}
-          id={activity.id}
-          name={activity.name}
-          dificult={activity.dificult}
-          duration={activity.duration}
-          season={activity.season}
-        />
-      ))
-    ) : (
-      <h1> No activities available</h1>
-    )}
-  </div>
-</ul>
+        <div className="activities">
+          <h1>Activities:</h1>
+          {detail.Activities && detail.Activities.length > 0 ? (
+            detail.Activities.map((activity) => (
+              <ActivitiesByCountry
+                key={activity.id}
+                id={activity.id}
+                name={activity.name}
+                dificult={activity.dificult}
+                duration={activity.duration}
+                season={activity.season}
+              />
+            ))
+          ) : (
+            <h1> No activities available</h1>
+          )}
+        </div>
+      </ul>
     </div>
   );
 };

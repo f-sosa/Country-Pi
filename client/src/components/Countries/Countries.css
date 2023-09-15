@@ -13,10 +13,29 @@
     display: flex;
     justify-content:space-between;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px;
 }
+
 
 .countries .pagination {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    background: linear-gradient(rgba(156, 193, 230, 0.75),rgba(51, 51, 95, 0.75));
+    color: #383838;   
+    padding: 10px 40px;
+    border-radius: 6px;
+    
+}
+ul li{
+    display: inline-block;
+    margin: 0 10px;
+    background: #f1e4e4;
+    width: 100px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 45px;
+    cursor: pointer;
 }

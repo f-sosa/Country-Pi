@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_NAME, ORDER, POBLATION, CONTINENT, GET_ACTIVITIES, GET_COUNTRYBYID, ACTIVITY, ADD_COUNTRY_ACTIVITY, REMOVE_COUNTRY_ACTIVITY, RESET_COUNTRY_ACTIVITY } from "./types";
+import { GET_COUNTRIES, GET_NAME, ORDER, POBLATION, CONTINENT, GET_ACTIVITIES, GET_COUNTRYBYID, ACTIVITY, ADD_COUNTRY_ACTIVITY, REMOVE_COUNTRY_SELECT, REMOVE_COUNTRY_ACTIVITY_SEARCH, RESET_COUNTRY_ACTIVITY } from "./types";
 const initialState = {
   countries: [],
   countriesFilter: [],
@@ -68,20 +68,28 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, activities: action.payload };
 
     case ADD_COUNTRY_ACTIVITY:
-
+       
       return {
         ...state,
         countrySelect: [...state.countrySelect, action.payload],
         
       };
 
-      case REMOVE_COUNTRY_ACTIVITY:
+      case REMOVE_COUNTRY_ACTIVITY_SEARCH:
 
       return {
         ...state,
         countryActivity: state.countryActivity.filter(country => country.id !== action.payload)
       };
-
+      
+      //verificar
+      case REMOVE_COUNTRY_SELECT:
+      
+      return {
+        ...state,
+        countrySelect: state.countrySelect.filter(country => country.id !== action.payload)
+      };
+      
       case RESET_COUNTRY_ACTIVITY:
 
       return {

@@ -1,13 +1,31 @@
 .LandingPage {
-    background: url(../../img/World.jpg) no-repeat center top;
-    background-size: cover; 
+    background: url(../../img/Worlds.jpg) no-repeat center top;
+    
+    background-size: 100% 100%;
     background-repeat: no-repeat; 
     background-position: center center;
     height: 100vh; 
    }
+
+   .LandingPage h1{
+    position: relative;
+    top: 330px;
+    font-size: 100px;
+   }
+   .LandingPage h3{
+    position: relative;
+    top: -90px;
+    margin-left: 1500px;
+    font-size: 25px;
+    color: white;
+   }
+
+
    .button {
+     position: relative;
+     top: 450px;
      color: #0c0d0d !important;
-     margin-top: 200px;
+     margin-top: 80px;
      font-size: 50px;
      font-weight: 500;
      padding: 0.5em 1.2em;
@@ -16,7 +34,7 @@
      border-color: #b2bfc4;
      border-radius: 25px;
      transition: all 1s ease;
-     position: relative;
+     
    }
    .button:hover {
      background: #318aac;

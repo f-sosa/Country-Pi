@@ -6,7 +6,26 @@ border-radius: 10px;
 border-color: blanchedalmond;
 height: 110px;
 background: linear-gradient(rgba(216, 230, 244, 0.75),rgba(241, 241, 246, 0.75));
+
 }
+
+.filter button {
+   margin-left: -70px;
+   font-weight: 700;
+   color: #1b3039;
+   padding: -15px 25px;
+   background: #eceff1;
+   border: none;
+   border-radius: 50px;
+   cursor: pointer;
+   transition: all 0.3s ease 0s;
+ }
+
+ .filter button:hover {
+   background-color: #e2f1f8;
+   color: grey;
+   transform: scale(1.1);
+ }
 
 .filter h3 {
    text-align: center;

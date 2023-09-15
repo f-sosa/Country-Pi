@@ -1,10 +1,31 @@
 .countrySelected {
-position: relative;
-top: -16px;
-display: flex;
-border: none;
+  position: relative;
+  top: -10px;
+  display: flex;
+  border: 1px solid #000;
+  width: 150px;
+  border-radius: 10px;
+  margin-left: 10px;
+  
 }
-.countrySelected  h1{
-position: relative;
-top: 10px;
+.countrySelected p {
+  position: relative;
+  left: 15px;
 }
+
+.countrySelected img {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  left: 5px;
+}
+
+.countrySelected button {
+    position: relative;
+    width: 15px;
+    height: 20px;
+    left: 18px;
+    top: 3px;
+    
+  }
+  
