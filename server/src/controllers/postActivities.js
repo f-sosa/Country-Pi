@@ -6,10 +6,10 @@ module.exports = async (req, res) => {
         let success = {
             repeat: ""
         };
-        let asd = false;
+      
         if (!name || !dificult || !duration || !season) {
 
-            return res.status(401).send('The data is insufficient');
+            return res.status(401).send('The data is insufficient '+ "Name: " + name + " Dificult: " + dificult + " Duration: "+ duration+ " Season: "+ season);
 
         }
         const [activity, created] = await Activity.findOrCreate({
@@ -43,7 +43,7 @@ module.exports = async (req, res) => {
             
         })
         
-        return res.status(200).send(success);
+        return res.status(200).send(success.repeat);
 
     } catch (error) {
         return res.status(500).send(error.message);
